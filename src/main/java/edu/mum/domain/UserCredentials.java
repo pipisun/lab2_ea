@@ -7,9 +7,12 @@ import javax.persistence.Id;
  
  
 public class UserCredentials {
-
+	
+	@Column(name = "USER")
   	String username;
+	@Column(name = "PASSWORD")
  	String password;
+	
  	String verifyPassword;
 	Boolean enabled;
 
