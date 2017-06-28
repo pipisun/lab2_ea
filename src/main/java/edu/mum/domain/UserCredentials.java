@@ -3,17 +3,20 @@ package edu.mum.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 
- 
- 
+@Entity
+@Table(name="Authentication")
 public class UserCredentials {
-	
-	@Column(name = "USER")
+	@Id
+	@Column(name = "USER", nullable = false, unique = true)
   	String username;
-	@Column(name = "PASSWORD")
+	@Column(name = "PASSWORD", nullable = false, length = 32)
  	String password;
-	
+	@Transient
  	String verifyPassword;
+ 	
 	Boolean enabled;
 
  	public String getUsername() {

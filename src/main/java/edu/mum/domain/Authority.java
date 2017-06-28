@@ -6,13 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
- 
+@Entity 
 public class Authority {
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(nullable = false)
  	private long id;
 
 	private String username;
- 
+	@Column(nullable = false)
  	private String authority;
  	
 	 public long getId() {

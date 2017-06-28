@@ -1,6 +1,5 @@
 package edu.mum.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -9,25 +8,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
-public class User implements Serializable  {
-	
-	@Column(name = "USER_ID")
+@Entity
+@Table(name="Users")
+public class User {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "USER_ID", nullable = false)
     private Long id = null;
-	@Column(name = "FIRSTNAME")
+	@Column(name = "FIRSTNAME", nullable = false)
     private String firstName;
-	@Column(name = "LASTNAME")
+	@Column(name = "LASTNAME", nullable = false)
     private String lastName;
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", nullable = false)
     private String email;
-	@Column(name = "RANK")
+	@Column(name = "RANK", nullable = false)
     private int ranking = 0;
-	@Column(name = "IS_ADMIN")
+	@Column(name = "IS_ADMIN", nullable = false)
     private boolean admin = false;
-	@Column(name = "VERSION")
+	@Column(name = "VERSION", nullable = false)
     private int version = 0;
-	
+	@Temporal(TemporalType.TIMESTAMP)
     private Date lastLogin;
      
 	public Long getId() {
